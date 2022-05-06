@@ -40,7 +40,7 @@ rfModel = rf.fit(trainingData)
 predictions = rfModel.transform(testData)
 print(predictions.take(3))
 
-evaluator = BinaryClassificationEvaluator(labelCol="y", rawPredictionCol="rawPrediction")
+evaluator = BinaryClassificationEvaluator(labelCol="activity", rawPredictionCol="rawPrediction")
 print('ROC: ', evaluator.evaluate(predictions))
 
 
