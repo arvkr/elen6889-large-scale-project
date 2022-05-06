@@ -36,3 +36,5 @@ print(predictions.take(1))
 
 evaluator = BinaryClassificationEvaluator(labelCol="activity", rawPredictionCol="rawPrediction")
 print('ROC: ', evaluator.evaluate(predictions))
+
+pipelineModel.save('gs://6893_bucket/large-scale/project/rf')
