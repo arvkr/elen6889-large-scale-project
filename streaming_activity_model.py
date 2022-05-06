@@ -2,10 +2,6 @@
 from pyspark.sql import SparkSession, SQLContext
 from pyspark import SparkConf, SparkContext
 
-import matplotlib.pyplot as plt
-%matplotlib inline
-import numpy as np
-import pandas as pd
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.classification import RandomForestClassifier
