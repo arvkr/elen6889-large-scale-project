@@ -51,3 +51,5 @@ predictions = pipelineModel.transform(test)
 evaluator = MulticlassClassificationEvaluator(labelCol="Activity", predictionCol="prediction",metricName = "accuracy")
 
 print(evaluator.evaluate(predictions))
+
+pipelineModel.save('gs://6893_bucket/large-scale/project/uci_rf')
