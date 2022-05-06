@@ -23,7 +23,7 @@ with open('col_list.txt', 'r') as f:
 
 userSchema = StructType()
 for col in col_list:
-        userSchema = userSchema.add(col, DoubleType())
+        userSchema = userSchema.add(col, "float")
 
   
 # userSchema = StructType() \
