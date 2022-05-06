@@ -1,3 +1,12 @@
+
+from pyspark.sql import SparkSession, SQLContext
+from pyspark import SparkConf, SparkContext
+
+conf = SparkConf()
+sc = SparkContext(conf=conf)
+sc.setLogLevel("ERROR")
+sqlContext = SQLContext(sc)
+
 from pyspark.sql.types import StructType
 from pyspark.sql.functions import from_json, col, split
 from pyspark.sql import functions as F
@@ -19,7 +28,7 @@ userSchema = StructType() \
             .add('timestamp', 'timestamp')
 
 
-df = spark \
+df = sqlContext \
   .readStream \
   .format("kafka") \
   .option("kafka.bootstrap.servers", "localhost:9092") \
