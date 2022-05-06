@@ -53,7 +53,7 @@ df = spark \
 
 num_feats = len(col_list)
 for i in range(num_feats):
-    df = df.withColumn(col_list[i], split(df.parsed_value.cast('string'), ',').getItem(i))
+    df = df.withColumn(col_list[i], split(df["parsed_value"].cast('string'), ', ').getItem(i))
 
 
 # df2 = df.withColumn("ax1", split(df["parsed_value"].cast("string"), ", ").getItem(0))\
