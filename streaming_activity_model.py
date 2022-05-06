@@ -57,3 +57,5 @@ df2 = df2.drop(*drop_cols)
 df2 = df2.withColumnRenamed("ax1-up", "ax1")
 
 df2.writeStream.format("console").outputMode("update").option("truncate", False).start()
+
+query.awaitTermination()
