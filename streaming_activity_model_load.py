@@ -98,7 +98,7 @@ df2 = df2.withColumnRenamed("ax1-up", "ax1")
 
 # query = df2.writeStream.format("console").outputMode("update").option("truncate", False).start()
 
-pModel = PipelineModel.load("./rf/rfmodel")
+pModel = PipelineModel.load("gs://6893_bucket/large-scale/project/rf")
 
 # pretestdf = pipelineModel.transform(df2)
 # stream_pred = pipelineModel.transform(pretestdf)
