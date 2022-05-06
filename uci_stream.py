@@ -1,5 +1,5 @@
 
-# $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2 streaming_activity_model_load.py
+# $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2 uci_stream.py
 # pyspark --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2
 
 from pyspark.sql import SQLContext
@@ -23,7 +23,7 @@ with open('col_list.txt', 'r') as f:
 
 userSchema = StructType()
 for col in col_list:
-        userSchema = userSchema.addField(col, DoubleType())
+        userSchema = userSchema.add(col, DoubleType())
 
   
 # userSchema = StructType() \
