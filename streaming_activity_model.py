@@ -98,7 +98,7 @@ df2 = df2.withColumnRenamed("ax1-up", "ax1")
 
 pretestdf = pipelineModel.transform(df2)
 
-pretestdf.writeStream.format("console").outputMode("update").option("truncate", False).start()
+# pretestdf.writeStream.format("console").outputMode("update").option("truncate", False).start()
 
 stream_pred = rfModel.transform(pretestdf)
 
