@@ -1,5 +1,6 @@
 
 # $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2 streaming_activity_model.py
+# pyspark --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2
 
 from pyspark.sql import SparkSession, SQLContext
 from pyspark import SparkConf, SparkContext
@@ -14,10 +15,10 @@ from pyspark.ml.evaluation import BinaryClassificationEvaluator
 conf = SparkConf()
 sc = SparkContext(conf=conf)
 sc.setLogLevel("ERROR")
-sqlContext = SQLContext(sc)
+spark = SQLContext(sc)
 
 DATA_PATH = 'gs://6893_bucket/large-scale/project/dataset_accx.csv'
-data = sqlContext.read.csv(DATA_PATH, inferSchema=True, header=True)
+data = spark.read.csv(DATA_PATH, inferSchema=True, header=True)
 print(data.show(3))
 print(data.count())
 dataset = data
@@ -67,7 +68,7 @@ userSchema = StructType() \
             .add('timestamp', 'timestamp')
 
 
-df = sqlContext \
+df = spark \
   .readStream \
   .format("kafka") \
   .option("kafka.bootstrap.servers", "localhost:9092") \
