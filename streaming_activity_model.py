@@ -1,4 +1,6 @@
 
+# $SPARK_HOME/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2,org.apache.spark:spark-streaming-kafka-0-10_2.12:3.1.2 streaming_activity_model.py
+
 from pyspark.sql import SparkSession, SQLContext
 from pyspark import SparkConf, SparkContext
 
